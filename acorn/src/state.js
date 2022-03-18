@@ -9,6 +9,8 @@ export class Parser {
   constructor(options, input, startPos) {
     this.options = options = getOptions(options)
     this.sourceFile = options.sourceFile
+
+    // 这两个属性都是正则，用来判断是偶是某个关键字 /^(?:let|const|var)$/
     this.keywords = wordsRegexp(keywords[options.ecmaVersion >= 6 ? 6 : options.sourceType === "module" ? "5module" : 5])
     let reserved = ""
     if (options.allowReserved !== true) {
