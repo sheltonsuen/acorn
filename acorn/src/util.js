@@ -9,6 +9,8 @@ export const isArray = Array.isArray || ((obj) => (
 ))
 
 export function wordsRegexp(words) {
+  // 嗯，这儿这个还是动态创建的关键字，感觉没有必要，直接template string, 原地创建可能更直观
+  // TODO: refactor, use template string
   return new RegExp("^(?:" + words.replace(/ /g, "|") + ")$")
 }
 
