@@ -25,6 +25,7 @@ export const reservedWords = {
 
 const ecma5AndLessKeywords = "break case catch continue debugger default do else finally for function if return switch throw try var while with null true false instanceof typeof void delete new in this"
 
+// 这个很棒，把关键之这样处理，分成 5， 5module，6以上
 export const keywords = {
   5: ecma5AndLessKeywords,
   "5module": ecma5AndLessKeywords + " export import",
