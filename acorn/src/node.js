@@ -9,6 +9,7 @@ export class Node {
     if (parser.options.locations)
       this.loc = new SourceLocation(parser, loc)
     if (parser.options.directSourceFile)
+      // Like sourceFile, but a sourceFile property will be added (regardless of the location option) directly to the nodes, rather than the loc object.
       this.sourceFile = parser.options.directSourceFile
     if (parser.options.ranges)
       this.range = [pos, 0]
