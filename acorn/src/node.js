@@ -12,6 +12,8 @@ export class Node {
       // Like sourceFile, but a sourceFile property will be added (regardless of the location option) directly to the nodes, rather than the loc object.
       this.sourceFile = parser.options.directSourceFile
     if (parser.options.ranges)
+      // Nodes have their start and end characters offsets recorded in start and end properties (directly on the node, rather than the loc object, which holds line/column data. 
+      // To also add a semi-standardized range property holding a [start, end] array with the same numbers, set the ranges option to true.
       this.range = [pos, 0]
   }
 }
