@@ -38,6 +38,8 @@ export class Parser {
       this.curLine = this.input.slice(0, this.lineStart).split(lineBreak).length
     } else {
       this.pos = this.lineStart = 0
+
+      // curLine 这个变量得注意一下，这个变量不是0-indexed
       this.curLine = 1
     }
 
