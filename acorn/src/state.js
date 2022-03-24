@@ -30,6 +30,7 @@ export class Parser {
 
     // Set up token state
 
+    // 可以指定开始的位置
     // The current position of the tokenizer in the input.
     if (startPos) {
       this.pos = startPos
