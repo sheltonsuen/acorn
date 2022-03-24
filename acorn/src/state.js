@@ -1,9 +1,9 @@
-import {reservedWords, keywords} from "./identifier.js"
-import {types as tt} from "./tokentype.js"
-import {lineBreak} from "./whitespace.js"
-import {getOptions} from "./options.js"
-import {wordsRegexp} from "./util.js"
-import {SCOPE_TOP, SCOPE_FUNCTION, SCOPE_ASYNC, SCOPE_GENERATOR, SCOPE_SUPER, SCOPE_DIRECT_SUPER, SCOPE_CLASS_STATIC_BLOCK} from "./scopeflags.js"
+import { keywords, reservedWords } from "./identifier.js"
+import { getOptions } from "./options.js"
+import { SCOPE_ASYNC, SCOPE_CLASS_STATIC_BLOCK, SCOPE_DIRECT_SUPER, SCOPE_FUNCTION, SCOPE_GENERATOR, SCOPE_SUPER, SCOPE_TOP } from "./scopeflags.js"
+import { types as tt } from "./tokentype.js"
+import { wordsRegexp } from "./util.js"
+import { lineBreak } from "./whitespace.js"
 
 export class Parser {
   constructor(options, input, startPos) {
@@ -97,6 +97,8 @@ export class Parser {
   }
 
   parse() {
+    // program: It is possible to parse multiple files into a single AST by passing the tree produced by parsing the first file as the program option in subsequent parses.
+    // This will add the toplevel forms of the parsed file to the "Program" (top) node of an existing parse tree.
     let node = this.options.program || this.startNode()
     this.nextToken()
     return this.parseTopLevel(node)
